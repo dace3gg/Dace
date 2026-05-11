@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dace3g (Storyteller)</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg-color: #000000;
@@ -12,18 +17,16 @@
             --accent-yellow: #FFCC00;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
+        body, html {
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            /* New cool, informal font for the whole site */
+            font-family: 'Outfit', sans-serif; 
+            font-weight: 300; 
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+            overflow: hidden; /* Prevents scrolling on the landing page */
         }
 
         /* --- IMMERSIVE HERO SECTION --- */
@@ -31,7 +34,6 @@
             position: relative;
             width: 100vw;
             height: 100vh;
-            /* Your uploaded image as the full background */
             background-image: url('https://i.postimg.cc/MKL2XqbG/Dace.jpg');
             background-size: cover;
             background-position: center;
@@ -49,7 +51,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.3); 
+            background-color: rgba(0, 0, 0, 0.4); 
             z-index: 2;
         }
 
@@ -69,11 +71,12 @@
             color: var(--text-main);
             text-decoration: none;
             font-size: 1rem; 
-            font-weight: bold;
+            font-weight: 700; /* Bold on landing */
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: color 0.3s ease, transform 0.3s ease;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.8); /* Helps it pop off the background */
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+            cursor: pointer;
         }
 
         .nav-link:hover {
@@ -85,13 +88,13 @@
         .hero-title-container {
             text-align: center;
             z-index: 5;
-            margin-top: 150px; /* Pushes the title down slightly if needed */
+            margin-top: 150px; 
         }
 
         .brand-name {
-            font-family: 'Georgia', serif; 
+            font-family: 'Playfair Display', serif; 
             font-size: 5.5rem; 
-            font-weight: normal;
+            font-weight: 700; /* Bold on landing */
             color: var(--text-main);
             margin: 0;
             line-height: 1;
@@ -105,32 +108,71 @@
             margin-top: 15px;
             text-transform: uppercase;
             letter-spacing: 4px;
-            font-weight: bold;
+            font-weight: 700; /* Bold on landing */
             text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
         }
 
-        /* --- CONTENT SECTIONS BELOW HERO --- */
+        /* --- POP-UP CONTENT OVERLAY --- */
         .main-content {
-            position: relative;
-            z-index: 20;
-            background-color: var(--bg-color); /* Solid black */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.95); /* Almost solid black overlay */
+            backdrop-filter: blur(10px); /* Blurs the background image behind it */
+            z-index: 50;
+            overflow-y: auto;
+            display: none; /* Hidden by default */
+            padding-top: 60px; /* Space for the close button */
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2.5rem;
+            color: var(--accent-yellow);
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 100;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 300;
+            line-height: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .close-btn:hover {
+            transform: scale(1.1);
         }
 
         .content-section {
-            padding: 80px 20px;
-            max-width: 1000px;
+            display: none; /* Sections hidden individually */
+            padding: 20px 20px 80px 20px;
+            max-width: 800px;
             margin: 0 auto;
-            border-bottom: 1px solid #222;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .content-section.active {
+            display: block; /* Shown when clicked */
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .content-section h2 {
-            font-size: 1.5rem; 
-            font-weight: bold;
+            font-size: 1.8rem; 
+            font-weight: 400; /* Cool, not heavily bold */
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--accent-yellow);
             margin-top: 0;
             margin-bottom: 30px;
+            text-align: center;
         }
 
         /* Shared Styles */
@@ -148,12 +190,8 @@
             transition: border-color 0.3s ease;
         }
 
-        .about-img:hover, .series-cover:hover {
-            border-color: var(--accent-yellow);
-        }
-
         .about-text {
-            font-size: 1.1rem; 
+            font-size: 1.2rem; 
             line-height: 1.6;
             color: var(--text-muted);
             text-align: center;
@@ -161,6 +199,7 @@
 
         .about-text strong {
             color: var(--text-main);
+            font-weight: 400;
         }
 
         @media (min-width: 768px) {
@@ -183,11 +222,6 @@
             overflow: hidden;
             width: 100%;
             border: 1px solid #333;
-            transition: border-color 0.3s ease;
-        }
-
-        .youtube-container:hover {
-            border-color: var(--accent-yellow);
         }
 
         .youtube-container iframe {
@@ -230,6 +264,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            align-items: center;
         }
 
         .text-link {
@@ -239,18 +274,15 @@
             border-bottom: 1px solid transparent;
             padding-bottom: 2px;
             transition: all 0.3s ease;
-            width: fit-content;
         }
 
         .text-link:hover {
             color: var(--accent-yellow);
             border-bottom-color: var(--accent-yellow);
-            transform: translateX(5px);
         }
 
         .email-link {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.3rem;
             color: var(--accent-yellow);
             margin-top: 20px;
         }
@@ -263,7 +295,7 @@
         .site-footer {
             text-align: center;
             padding: 40px 20px;
-            color: var(--text-muted);
+            color: #555;
             font-size: 0.8rem;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -276,11 +308,14 @@
             }
             .floating-nav {
                 left: 20px;
-                top: 50%; /* Keeps it vertically centered on the left */
                 gap: 20px;
             }
             .nav-link {
                 font-size: 0.85rem;
+            }
+            .close-btn {
+                top: 10px;
+                right: 15px;
             }
         }
     </style>
@@ -291,10 +326,10 @@
         <div class="overlay"></div>
 
         <nav class="floating-nav">
-            <a href="#info" class="nav-link">Info</a>
-            <a href="#videos" class="nav-link">Videos</a>
-            <a href="#contact" class="nav-link">Contact</a>
-            <a href="#about" class="nav-link">About</a>
+            <a onclick="openPage('info')" class="nav-link">Info</a>
+            <a onclick="openPage('videos')" class="nav-link">Videos</a>
+            <a onclick="openPage('contact')" class="nav-link">Contact</a>
+            <a onclick="openPage('about')" class="nav-link">About</a>
         </nav>
 
         <div class="hero-title-container">
@@ -303,13 +338,15 @@
         </div>
     </section>
 
-    <main class="main-content">
+    <main class="main-content" id="contentOverlay">
+        
+        <button class="close-btn" onclick="closePage()">×</button>
         
         <section id="info" class="content-section">
             <h2>Info & Projects</h2>
             <img src="https://i.postimg.cc/Gm383PQN/Add-a-heading.png" alt="Unstable Cover" class="series-cover" style="margin: 0 auto 20px auto; display: block;">
             
-            <p class="about-text" style="margin-bottom: 20px;">Listen to <strong>Unstable with Dace</strong>:</p>
+            <p class="about-text" style="margin-bottom: 20px;">Watch <strong>Unstable with Dace</strong>:</p>
             <div class="link-grid">
                 <a href="https://youtube.com/playlist?list=PLWVHO4NspRdvPp0flvd5TduBdq6nizYOI&si=HtzDOv_l7ZXzCmJT" target="_blank" class="hollow-btn">YouTube</a>
                 <a href="https://open.spotify.com/show/2070yfXMVlsjjXFbygFiwI" target="_blank" class="hollow-btn">Spotify</a>
@@ -340,10 +377,10 @@
             </div>
         </section>
 
-        <section id="about" class="content-section" style="border-bottom: none;">
+        <section id="about" class="content-section">
             <h2>About</h2>
             <div class="about-container">
-                <img src="https://i.postimg.cc/DyP4KpqG/DACE.jpg" alt="About Dace" class="about-img">
+                <img src="https://i.postimg.cc/8PmfVXh6/DACE.jpg" alt="About Dace" class="about-img">
                 <div class="about-text">
                     <p>Dace is a Ghanaian Content Creator and aspiring Actor/ Filmmaker. He hosted the JDEPOD (a podcast) for most of 2025. He is currently working on a new series called <strong>Unstable</strong>.</p>
                 </div>
@@ -355,5 +392,29 @@
         </footer>
 
     </main>
+
+    <script>
+        function openPage(pageId) {
+            // Show the dark overlay container
+            document.getElementById('contentOverlay').style.display = 'block';
+            
+            // Hide all sections first
+            let sections = document.querySelectorAll('.content-section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+            
+            // Show only the specific section clicked
+            document.getElementById(pageId).classList.add('active');
+            
+            // Scroll to the top of the overlay
+            document.getElementById('contentOverlay').scrollTop = 0;
+        }
+
+        function closePage() {
+            // Hide the dark overlay container to reveal landing page again
+            document.getElementById('contentOverlay').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
