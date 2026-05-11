@@ -49,7 +49,8 @@
             position: relative;
             width: 100vw;
             height: 100vh;
-            background-image: url('https://i.postimg.cc/MKL2XqbG/Dace.jpg');
+            /* UPDATED LANDING PAGE IMAGE */
+            background-image: url('https://i.postimg.cc/157BR7QS/DF7C4A09-EABF-4E54-8200-7AB2CE1145F3-Original.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -218,6 +219,13 @@
             max-width: 400px;
             border: 1px solid #333;
             transition: border-color 0.3s ease;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
         }
 
         .about-text {
@@ -489,9 +497,16 @@
 
         <section id="info" class="content-section">
             <h2>Info & Projects</h2>
-            <img src="https://i.postimg.cc/Gm383PQN/Add-a-heading.png" alt="Unstable Cover" class="series-cover" style="margin: 0 auto 20px auto; display: block;">
+            <div style="max-width: 400px; margin: 0 auto;">
+                <img src="https://i.postimg.cc/Y2nYQ4yJ/Add-a-heading.png" alt="Unstable Cover Main" class="series-cover">
+                
+                <div class="gallery-grid">
+                    <img src="https://i.postimg.cc/Dy0QNQXS/Add-a-heading-7.png" alt="Unstable Cover 7" class="series-cover">
+                    <img src="https://i.postimg.cc/Hk7wYp3g/Add-a-heading-8.png" alt="Unstable Cover 8" class="series-cover">
+                </div>
+            </div>
             
-            <p class="about-text" style="margin-bottom: 20px;">Watch <strong>Unstable with Dace</strong>:</p>
+            <p class="about-text" style="margin-top: 30px; margin-bottom: 20px;">Watch <strong>Unstable with Dace</strong>:</p>
             <div class="link-grid">
                 <a href="https://youtube.com/playlist?list=PLWVHO4NspRdvPp0flvd5TduBdq6nizYOI&si=HtzDOv_l7ZXzCmJT" target="_blank" class="hollow-btn">YouTube</a>
                 <a href="https://open.spotify.com/show/2070yfXMVlsjjXFbygFiwI" target="_blank" class="hollow-btn">Spotify</a>
@@ -537,7 +552,7 @@
         <section id="about" class="content-section">
             <h2>About</h2>
             <div class="about-container">
-                <img src="https://i.postimg.cc/8PmfVXh6/DACE.jpg" alt="About Dace" class="about-img">
+                <img src="https://i.postimg.cc/NfdJ9f1R/IMG-0628.jpg" alt="About Dace" class="about-img">
                 <div class="about-text">
                     <p>Dace is a Ghanaian Content Creator and aspiring Actor/ Filmmaker. He hosted the JDEPOD (a podcast) for most of 2025. He is currently working on a new series called <strong>Unstable</strong>.</p>
                 </div>
