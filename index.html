@@ -22,11 +22,10 @@
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-main);
-            /* New cool, informal font for the whole site */
             font-family: 'Outfit', sans-serif; 
             font-weight: 300; 
             -webkit-font-smoothing: antialiased;
-            overflow: hidden; /* Prevents scrolling on the landing page */
+            overflow: hidden; 
         }
 
         /* --- GLOBAL LOGO --- */
@@ -34,9 +33,9 @@
             position: fixed;
             top: 30px;
             left: 30px;
-            width: 50px; /* Adjust size if needed */
+            width: 50px; 
             height: auto;
-            z-index: 1000; /* Stays above absolutely everything */
+            z-index: 1000; 
             cursor: pointer;
             transition: transform 0.3s ease;
         }
@@ -60,7 +59,6 @@
             z-index: 1;
         }
 
-        /* Dark overlay to make text and menu readable */
         .overlay {
             position: absolute;
             top: 0;
@@ -71,7 +69,6 @@
             z-index: 2;
         }
 
-        /* Floating Column Navigation */
         .floating-nav {
             position: absolute;
             left: 30px;
@@ -87,7 +84,7 @@
             color: var(--text-main);
             text-decoration: none;
             font-size: 1rem; 
-            font-weight: 700; /* Bold on landing */
+            font-weight: 700; 
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: color 0.3s ease, transform 0.3s ease;
@@ -100,7 +97,6 @@
             transform: translateX(5px);
         }
 
-        /* Centered Brand Title */
         .hero-title-container {
             text-align: center;
             z-index: 5;
@@ -110,7 +106,7 @@
         .brand-name {
             font-family: 'Playfair Display', serif; 
             font-size: 5.5rem; 
-            font-weight: 700; /* Bold on landing */
+            font-weight: 700; 
             color: var(--text-main);
             margin: 0;
             line-height: 1;
@@ -124,7 +120,7 @@
             margin-top: 15px;
             text-transform: uppercase;
             letter-spacing: 4px;
-            font-weight: 700; /* Bold on landing */
+            font-weight: 700; 
             text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
         }
 
@@ -135,12 +131,12 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: rgba(0, 0, 0, 0.95); /* Almost solid black overlay */
-            backdrop-filter: blur(10px); /* Blurs the background image behind it */
+            background-color: rgba(0, 0, 0, 0.95); 
+            backdrop-filter: blur(10px); 
             z-index: 50;
             overflow-y: auto;
-            display: none; /* Hidden by default */
-            padding-top: 60px; /* Space for the close button */
+            display: none; 
+            padding-top: 60px; 
         }
 
         .close-btn {
@@ -164,7 +160,7 @@
         }
 
         .content-section {
-            display: none; /* Sections hidden individually */
+            display: none; 
             padding: 20px 20px 80px 20px;
             max-width: 800px;
             margin: 0 auto;
@@ -172,7 +168,7 @@
         }
 
         .content-section.active {
-            display: block; /* Shown when clicked */
+            display: block; 
         }
 
         @keyframes fadeIn {
@@ -182,7 +178,7 @@
 
         .content-section h2 {
             font-size: 1.8rem; 
-            font-weight: 400; /* Cool, not heavily bold */
+            font-weight: 400; 
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--accent-yellow);
@@ -275,17 +271,26 @@
             border-color: var(--text-main);
         }
 
-        /* Contact Section */
-        .contact-list {
+        /* Secure Contact Form Styles */
+        .contact-layout {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 40px;
             align-items: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .text-link {
-            font-size: 1.2rem; 
-            color: var(--text-main);
+            font-size: 1.1rem; 
+            color: var(--text-muted);
             text-decoration: none;
             border-bottom: 1px solid transparent;
             padding-bottom: 2px;
@@ -297,14 +302,54 @@
             border-bottom-color: var(--accent-yellow);
         }
 
-        .email-link {
-            font-size: 1.3rem;
-            color: var(--accent-yellow);
-            margin-top: 20px;
+        .secure-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .email-link:hover {
+        .secure-form input,
+        .secure-form textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid #333;
             color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        .secure-form input:focus,
+        .secure-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-yellow);
+        }
+
+        .secure-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            padding: 15px;
+            background-color: transparent;
+            border: 1px solid var(--accent-yellow);
+            color: var(--accent-yellow);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-yellow);
+            color: var(--bg-color);
         }
 
         /* Footer */
@@ -392,12 +437,23 @@
 
         <section id="contact" class="content-section">
             <h2>Contact</h2>
-            <div class="contact-list">
-                <a href="https://youtube.com/@dace3g" target="_blank" class="text-link">YouTube</a>
-                <a href="https://www.instagram.com/dace3g" target="_blank" class="text-link">Instagram</a>
-                <a href="https://www.tiktok.com/@dace3g" target="_blank" class="text-link">TikTok</a>
-                <a href="https://x.com/Dace3g" target="_blank" class="text-link">X / Twitter</a>
-                <a href="mailto:Business.dace26@gmail.com" class="text-link email-link">Business.dace26@gmail.com</a>
+            
+            <div class="contact-layout">
+                <div class="social-links">
+                    <a href="https://youtube.com/@dace3g" target="_blank" class="text-link">YouTube</a>
+                    <a href="https://www.instagram.com/dace3g" target="_blank" class="text-link">Instagram</a>
+                    <a href="https://www.tiktok.com/@dace3g" target="_blank" class="text-link">TikTok</a>
+                    <a href="https://x.com/Dace3g" target="_blank" class="text-link">X / Twitter</a>
+                </div>
+
+                <p class="about-text" style="font-size: 0.9rem;">Or send a direct message below:</p>
+
+                <form class="secure-form" action="https://formspree.io/f/mnjwlgbq" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="_replyto" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
             </div>
         </section>
 
@@ -419,24 +475,19 @@
 
     <script>
         function openPage(pageId) {
-            // Show the dark overlay container
             document.getElementById('contentOverlay').style.display = 'block';
             
-            // Hide all sections first
             let sections = document.querySelectorAll('.content-section');
             sections.forEach(function(section) {
                 section.classList.remove('active');
             });
             
-            // Show only the specific section clicked
             document.getElementById(pageId).classList.add('active');
             
-            // Scroll to the top of the overlay
             document.getElementById('contentOverlay').scrollTop = 0;
         }
 
         function closePage() {
-            // Hide the dark overlay container to reveal landing page again
             document.getElementById('contentOverlay').style.display = 'none';
         }
     </script>
