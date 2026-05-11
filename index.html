@@ -29,6 +29,22 @@
             overflow: hidden; /* Prevents scrolling on the landing page */
         }
 
+        /* --- GLOBAL LOGO --- */
+        .site-logo {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            width: 50px; /* Adjust size if needed */
+            height: auto;
+            z-index: 1000; /* Stays above absolutely everything */
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .site-logo:hover {
+            transform: scale(1.1);
+        }
+
         /* --- IMMERSIVE HERO SECTION --- */
         .hero {
             position: relative;
@@ -303,6 +319,11 @@
 
         /* --- MOBILE TWEAKS --- */
         @media (max-width: 768px) {
+            .site-logo {
+                top: 20px;
+                left: 20px;
+                width: 45px;
+            }
             .brand-name {
                 font-size: 4rem;
             }
@@ -321,6 +342,8 @@
     </style>
 </head>
 <body>
+
+    <img src="https://i.postimg.cc/Vv8M4TCM/IMG-0059.png" alt="Dace Logo" class="site-logo" onclick="closePage()">
 
     <section class="hero">
         <div class="overlay"></div>
