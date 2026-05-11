@@ -31,82 +31,82 @@
             position: relative;
             width: 100vw;
             height: 100vh;
-            overflow: hidden;
+            /* Your uploaded image as the full background */
+            background-image: url('https://i.postimg.cc/MKL2XqbG/Dace.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             display: flex;
-            align-items: center; /* Centers the title vertically */
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
         }
 
-        /* Background Image Styling */
-        .image-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -2;
-        }
-
-        /* Dark overlay to make text readable over the photo */
+        /* Dark overlay to make text and menu readable */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity here */
-            z-index: -1;
+            background-color: rgba(0, 0, 0, 0.3); 
+            z-index: 2;
         }
 
-        /* Floating Navigation */
+        /* Floating Column Navigation */
         .floating-nav {
             position: absolute;
-            left: 20px;
+            left: 30px;
             top: 50%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 30px;
             z-index: 10;
         }
 
         .nav-link {
             color: var(--text-main);
             text-decoration: none;
-            font-size: 0.9rem; /* Reduced size */
+            font-size: 1rem; 
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8); /* Helps it pop off the background */
         }
 
         .nav-link:hover {
             color: var(--accent-yellow);
+            transform: translateX(5px);
         }
 
         /* Centered Brand Title */
         .hero-title-container {
-            width: 100%;
             text-align: center;
             z-index: 5;
+            margin-top: 150px; /* Pushes the title down slightly if needed */
         }
 
         .brand-name {
-            font-family: 'Georgia', serif; /* stylized serif font */
-            font-size: 5rem; /* Reduced size */
+            font-family: 'Georgia', serif; 
+            font-size: 5.5rem; 
             font-weight: normal;
             color: var(--text-main);
             margin: 0;
             line-height: 1;
             letter-spacing: -1px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
 
         .tagline {
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: var(--accent-yellow);
-            margin-top: 10px;
+            margin-top: 15px;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
+            font-weight: bold;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
         }
 
         /* --- CONTENT SECTIONS BELOW HERO --- */
@@ -124,7 +124,7 @@
         }
 
         .content-section h2 {
-            font-size: 1.5rem; /* Reduced size */
+            font-size: 1.5rem; 
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -153,7 +153,7 @@
         }
 
         .about-text {
-            font-size: 1.1rem; /* Reduced size */
+            font-size: 1.1rem; 
             line-height: 1.6;
             color: var(--text-muted);
             text-align: center;
@@ -233,7 +233,7 @@
         }
 
         .text-link {
-            font-size: 1.2rem; /* Reduced */
+            font-size: 1.2rem; 
             color: var(--text-main);
             text-decoration: none;
             border-bottom: 1px solid transparent;
@@ -275,17 +275,12 @@
                 font-size: 4rem;
             }
             .floating-nav {
-                top: auto;
-                bottom: 40px; /* Moves nav to bottom center on phones */
-                transform: none;
-                flex-direction: row;
-                flex-wrap: wrap;
                 left: 20px;
-                right: 20px;
-                justify-content: center;
+                top: 50%; /* Keeps it vertically centered on the left */
+                gap: 20px;
             }
             .nav-link {
-                font-size: 0.8rem;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -293,15 +288,13 @@
 <body>
 
     <section class="hero">
-        <img src="https://i.postimg.cc/MKL2XqbG/Dace.jpg" alt="Dace Background" class="image-bg">
-        
         <div class="overlay"></div>
 
         <nav class="floating-nav">
-            <a href="#about" class="nav-link">About</a>
-            <a href="#video" class="nav-link">Latest Release</a>
-            <a href="#unstable" class="nav-link">Unstable</a>
+            <a href="#info" class="nav-link">Info</a>
+            <a href="#videos" class="nav-link">Videos</a>
             <a href="#contact" class="nav-link">Contact</a>
+            <a href="#about" class="nav-link">About</a>
         </nav>
 
         <div class="hero-title-container">
@@ -310,34 +303,30 @@
         </div>
     </section>
 
-
     <main class="main-content">
         
-        <section id="about" class="content-section">
-            <h2>About</h2>
-            <div class="about-container">
-                <img src="https://i.postimg.cc/DyP4KpqG/DACE.jpg" alt="About Dace" class="about-img">
-                <div class="about-text">
-                    <p>Dace is a Ghanaian Content Creator and aspiring Actor/ Filmmaker. He hosted the JDEPOD (a podcast) for most of 2025. He is currently working on a new series called <strong>Unstable</strong>.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="video" class="content-section">
-            <h2>Latest Release</h2>
-            <div class="youtube-container">
-                <iframe src="https://www.youtube.com/embed/g20sxhFpZr4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        </section>
-
-        <section id="unstable" class="content-section">
-            <h2>Unstable with Dace</h2>
+        <section id="info" class="content-section">
+            <h2>Info & Projects</h2>
             <img src="https://i.postimg.cc/Gm383PQN/Add-a-heading.png" alt="Unstable Cover" class="series-cover" style="margin: 0 auto 20px auto; display: block;">
+            
+            <p class="about-text" style="margin-bottom: 20px;">Listen to <strong>Unstable with Dace</strong>:</p>
             <div class="link-grid">
                 <a href="https://youtube.com/playlist?list=PLWVHO4NspRdvPp0flvd5TduBdq6nizYOI&si=HtzDOv_l7ZXzCmJT" target="_blank" class="hollow-btn">YouTube</a>
                 <a href="https://open.spotify.com/show/2070yfXMVlsjjXFbygFiwI" target="_blank" class="hollow-btn">Spotify</a>
                 <a href="https://podcasts.apple.com/us/podcast/unstable-with-dace/id1895793385" target="_blank" class="hollow-btn">Apple Podcasts</a>
                 <a href="https://music.amazon.com/podcasts/6125bb4a-a31c-45c8-a533-24e6ea33fa8c/unstable-with-dace" target="_blank" class="hollow-btn">Amazon Music</a>
+            </div>
+
+            <div class="link-grid" style="margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
+                 <a href="https://gh.linkedin.com/in/joseph-djaba-176242308" target="_blank" class="hollow-btn">LinkedIn</a>
+                 <a href="https://www.crunchbase.com/person/joseph-kwabena-djaba" target="_blank" class="hollow-btn">Crunchbase</a>
+            </div>
+        </section>
+
+        <section id="videos" class="content-section">
+            <h2>Latest Release</h2>
+            <div class="youtube-container">
+                <iframe src="https://www.youtube.com/embed/g20sxhFpZr4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </section>
 
@@ -349,10 +338,15 @@
                 <a href="https://x.com/Dace3g" target="_blank" class="text-link">X / Twitter</a>
                 <a href="mailto:Business.dace26@gmail.com" class="text-link email-link">Business.dace26@gmail.com</a>
             </div>
-            
-            <div class="link-grid" style="margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
-                 <a href="https://gh.linkedin.com/in/joseph-djaba-176242308" target="_blank" class="hollow-btn">LinkedIn</a>
-                 <a href="https://www.crunchbase.com/person/joseph-kwabena-djaba" target="_blank" class="hollow-btn">Crunchbase</a>
+        </section>
+
+        <section id="about" class="content-section" style="border-bottom: none;">
+            <h2>About</h2>
+            <div class="about-container">
+                <img src="https://i.postimg.cc/DyP4KpqG/DACE.jpg" alt="About Dace" class="about-img">
+                <div class="about-text">
+                    <p>Dace is a Ghanaian Content Creator and aspiring Actor/ Filmmaker. He hosted the JDEPOD (a podcast) for most of 2025. He is currently working on a new series called <strong>Unstable</strong>.</p>
+                </div>
             </div>
         </section>
 
