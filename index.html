@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dace3g (Creator, Storyteller)</title>
+    <title>DACE3g (Creator, Storyteller)</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,7 +100,7 @@
         .hero-title-container {
             text-align: center;
             z-index: 5;
-            margin-top: 150px; 
+            margin-top: 50px; 
         }
 
         .brand-name {
@@ -122,6 +122,28 @@
             letter-spacing: 4px;
             font-weight: 700; 
             text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+        }
+
+        /* --- NEW LANDING PAGE SOCIAL ICONS --- */
+        .landing-socials {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .landing-social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            cursor: pointer;
+            filter: grayscale(100%) brightness(1.5);
+        }
+
+        .landing-social-icon:hover {
+            transform: scale(1.2);
+            filter: grayscale(0%) brightness(1);
         }
 
         /* --- POP-UP CONTENT OVERLAY --- */
@@ -372,6 +394,9 @@
             .brand-name {
                 font-size: 4rem;
             }
+            .hero-title-container {
+                margin-top: 100px;
+            }
             .floating-nav {
                 left: 20px;
                 gap: 20px;
@@ -421,7 +446,19 @@
 
         <div class="hero-title-container">
             <h1 class="brand-name">Dace</h1>
-            <div class="tagline">Storyteller</div>
+            <div class="tagline">(Creator, Storyteller)</div>
+            
+            <div class="landing-socials">
+                <a href="https://youtube.com/@dace3g" target="_blank">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3clOCToyNmWPhR9WhT4SZzzJrpSasZpAPwMOrIA_I4w&s=10" alt="YouTube" class="landing-social-icon">
+                </a>
+                <a href="https://www.instagram.com/dace3g" target="_blank">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3clOCToyNmWPhR9WhT4SZzzJrpSasZpAPwMOrIA_I4w&s=10" alt="Instagram" class="landing-social-icon">
+                </a>
+                <a href="https://www.tiktok.com/@dace3g" target="_blank">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqk7aBDrWqfComtbcLhe57wmWZewLNggmlGw1ntl3brQ&s=10" alt="TikTok" class="landing-social-icon">
+                </a>
+            </div>
         </div>
     </section>
 
