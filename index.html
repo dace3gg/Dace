@@ -69,7 +69,6 @@
             z-index: 2;
         }
 
-        /* MOVED UP: Changed top from 50% to 38% */
         .floating-nav {
             position: absolute;
             left: 30px;
@@ -125,7 +124,6 @@
             text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
         }
 
-        /* --- LANDING PAGE SOCIAL ICONS --- */
         .landing-socials {
             margin-top: 30px;
             display: flex;
@@ -208,7 +206,6 @@
             text-align: center;
         }
 
-        /* Shared Styles */
         .about-container {
             display: flex;
             flex-direction: column;
@@ -247,7 +244,6 @@
             }
         }
 
-        /* Embedded Video Styles */
         .youtube-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -265,7 +261,6 @@
             height: 100%;
         }
 
-        /* Grids and Buttons */
         .link-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -292,7 +287,6 @@
             border-color: var(--text-main);
         }
 
-        /* Secure Contact Form Styles */
         .contact-layout {
             display: flex;
             flex-direction: column;
@@ -373,7 +367,6 @@
             color: var(--bg-color);
         }
 
-        /* Footer */
         .site-footer {
             text-align: center;
             padding: 40px 20px;
@@ -383,7 +376,6 @@
             text-transform: uppercase;
         }
 
-        /* --- MOBILE TWEAKS --- */
         @media (max-width: 768px) {
             .site-logo {
                 top: 20px;
@@ -396,7 +388,6 @@
             .hero-title-container {
                 margin-top: 100px;
             }
-            /* MOBILE ADJUSTMENT: Moved nav higher to clear phone screens */
             .floating-nav {
                 left: 20px;
                 top: 35%; 
@@ -439,6 +430,7 @@
         <div class="overlay"></div>
 
         <nav class="floating-nav">
+            <a onclick="openPage('3giiiis')" class="nav-link">3giiiis</a>
             <a onclick="openPage('info')" class="nav-link">Info</a>
             <a onclick="openPage('videos')" class="nav-link">Videos</a>
             <a onclick="openPage('contact')" class="nav-link">Contact</a>
@@ -467,6 +459,34 @@
         
         <button class="close-btn" onclick="closePage()">×</button>
         
+        <section id="3giiiis" class="content-section">
+            <h2>3giiiis</h2>
+            <div class="about-text" style="text-align: left; max-width: 600px; margin: 0 auto;">
+                <p><strong>Tv shows I’ve watched recently:</strong></p>
+                <ul style="list-style: none; padding: 0; line-height: 2;">
+                    <li>• The Boys</li>
+                    <li>• Palm Royale</li>
+                    <li>• Your Friends and Neighbors</li>
+                    <li>• Widow’s Bay</li>
+                    <li>• Sugar</li>
+                    <li>• For all Mankind</li>
+                    <li>• Abbott Elementary</li>
+                </ul>
+                <p style="font-size: 0.8rem; color: var(--accent-yellow); margin-top: 10px;">Updated: May 11, 2026</p>
+                
+                <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+                
+                <p><strong>Recently played music:</strong></p>
+                <div class="link-grid">
+                    <a href="https://open.spotify.com/track/0dvKv9g7eveN4YNjHeYw6T?si=faYoJNBXSRK6tIXixGhDgg" target="_blank" class="hollow-btn">Spotify 1</a>
+                    <a href="https://open.spotify.com/track/2NSsAlLowF4oBBBktsAwM7?si=YmnbU0sbRguochzRrC_aOQ" target="_blank" class="hollow-btn">Spotify 2</a>
+                    <a href="https://open.spotify.com/track/5qWYxhd84Dj1uSR3GUtpJD?si=ftA8c3osQ66jojEGryrNUQ" target="_blank" class="hollow-btn">Spotify 3</a>
+                    <a href="https://music.apple.com/us/album/where-have-you-been/1878239070?i=1878239076" target="_blank" class="hollow-btn">Apple Music</a>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--accent-yellow); margin-top: 20px;">Updated: May 11, 2026</p>
+            </div>
+        </section>
+
         <section id="info" class="content-section">
             <h2>Info & Projects</h2>
             <img src="https://i.postimg.cc/Gm383PQN/Add-a-heading.png" alt="Unstable Cover" class="series-cover" style="margin: 0 auto 20px auto; display: block;">
