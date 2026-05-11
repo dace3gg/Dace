@@ -69,10 +69,11 @@
             z-index: 2;
         }
 
+        /* MOVED UP: Changed top from 50% to 38% */
         .floating-nav {
             position: absolute;
             left: 30px;
-            top: 50%;
+            top: 38%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
@@ -124,7 +125,7 @@
             text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
         }
 
-        /* --- NEW LANDING PAGE SOCIAL ICONS --- */
+        /* --- LANDING PAGE SOCIAL ICONS --- */
         .landing-socials {
             margin-top: 30px;
             display: flex;
@@ -138,12 +139,10 @@
             border-radius: 50%;
             transition: transform 0.3s ease, filter 0.3s ease;
             cursor: pointer;
-            filter: grayscale(100%) brightness(1.5);
         }
 
         .landing-social-icon:hover {
             transform: scale(1.2);
-            filter: grayscale(0%) brightness(1);
         }
 
         /* --- POP-UP CONTENT OVERLAY --- */
@@ -397,8 +396,10 @@
             .hero-title-container {
                 margin-top: 100px;
             }
+            /* MOBILE ADJUSTMENT: Moved nav higher to clear phone screens */
             .floating-nav {
                 left: 20px;
+                top: 35%; 
                 gap: 20px;
             }
             .nav-link {
@@ -453,7 +454,7 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3clOCToyNmWPhR9WhT4SZzzJrpSasZpAPwMOrIA_I4w&s=10" alt="YouTube" class="landing-social-icon">
                 </a>
                 <a href="https://www.instagram.com/dace3g" target="_blank">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3clOCToyNmWPhR9WhT4SZzzJrpSasZpAPwMOrIA_I4w&s=10" alt="Instagram" class="landing-social-icon">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI1bVIlhyylzAiarN1GZf7pKFRgX01zUhuH95ODDFDlw&s=10" alt="Instagram" class="landing-social-icon">
                 </a>
                 <a href="https://www.tiktok.com/@dace3g" target="_blank">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqk7aBDrWqfComtbcLhe57wmWZewLNggmlGw1ntl3brQ&s=10" alt="TikTok" class="landing-social-icon">
