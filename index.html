@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DACE3g (Creator, Storyteller)</title>
     
-    <!-- SEARCH RESULT THUMBNAIL (Favicon & Social Image) -->
     <link rel="icon" type="image/png" href="https://i.postimg.cc/J4dwwQYJ/IMG-0059.png">
+    <link rel="apple-touch-icon" href="https://i.postimg.cc/J4dwwQYJ/IMG-0059.png">
     <meta property="og:image" content="https://i.postimg.cc/J4dwwQYJ/IMG-0059.png">
     <meta name="twitter:image" content="https://i.postimg.cc/J4dwwQYJ/IMG-0059.png">
 
@@ -30,7 +30,7 @@
             font-family: 'Outfit', sans-serif; 
             font-weight: 300; 
             -webkit-font-smoothing: antialiased;
-            overflow: hidden; 
+            overflow-x: hidden; 
         }
 
         /* --- GLOBAL LOGO --- */
@@ -42,26 +42,34 @@
             height: auto;
             z-index: 1000; 
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .site-logo:hover {
-            transform: scale(1.1);
+            transform: scale(1.15) rotate(5deg);
         }
 
-        /* --- IMMERSIVE HERO SECTION --- */
+        /* --- HERO SECTION --- */
         .hero {
             position: relative;
             width: 100vw;
             height: 100vh;
             background-image: url('https://i.postimg.cc/157BR7QS/DF7C4A09-EABF-4E54-8200-7AB2CE1145F3-Original.jpg');
             background-size: cover;
-            background-position: center;
+            background-position: center top; /* Default for mobile */
             background-repeat: no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 1;
+        }
+
+        /* DESKTOP BACKGROUND FIX: Stops the "Giant Face" issue */
+        @media (min-width: 1024px) {
+            .hero {
+                background-position: center 15%; 
+                background-attachment: fixed; /* Parallax effect for smoothness */
+            }
         }
 
         .overlay {
@@ -70,190 +78,165 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); 
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
             z-index: 2;
         }
 
         .floating-nav {
             position: absolute;
             left: 30px;
-            top: 38%;
+            top: 45%; /* Slightly lower for better desktop balance */
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 25px;
             z-index: 10;
         }
 
         .nav-link {
             color: var(--text-main);
             text-decoration: none;
-            font-size: 1rem; 
+            font-size: 0.9rem; 
             font-weight: 700; 
             text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: color 0.3s ease, transform 0.3s ease;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+            letter-spacing: 3px;
+            transition: all 0.4s ease;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
             cursor: pointer;
+            opacity: 0.8;
         }
 
         .nav-link:hover {
             color: var(--accent-yellow);
-            transform: translateX(5px);
+            transform: translateX(10px);
+            opacity: 1;
+            letter-spacing: 5px;
         }
 
         .hero-title-container {
             text-align: center;
             z-index: 5;
-            margin-top: 50px; 
+            margin-top: 80px; 
         }
 
         .brand-name {
             font-family: 'Playfair Display', serif; 
-            font-size: 5.5rem; 
+            font-size: 6.5rem; 
             font-weight: 700; 
             color: var(--text-main);
             margin: 0;
             line-height: 1;
-            letter-spacing: -1px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            letter-spacing: -2px;
+            text-shadow: 4px 4px 15px rgba(0,0,0,0.6);
         }
 
         .tagline {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--accent-yellow);
-            margin-top: 15px;
+            margin-top: 20px;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             font-weight: 700; 
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
         }
 
         .landing-socials {
-            margin-top: 30px;
+            margin-top: 40px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
         }
 
         .landing-social-icon {
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            transition: transform 0.3s ease, filter 0.3s ease;
+            transition: all 0.3s ease;
             cursor: pointer;
+            filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
         }
 
         .landing-social-icon:hover {
-            transform: scale(1.2);
+            transform: translateY(-5px) scale(1.2);
+            filter: drop-shadow(0 5px 15px rgba(255, 204, 0, 0.4));
         }
 
-        /* --- POP-UP CONTENT OVERLAY --- */
+        /* --- POP-UP CONTENT --- */
         .main-content {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: rgba(0, 0, 0, 0.95); 
-            backdrop-filter: blur(10px); 
+            background-color: rgba(0, 0, 0, 0.96); 
+            backdrop-filter: blur(15px); 
             z-index: 50;
             overflow-y: auto;
             display: none; 
-            padding-top: 60px; 
+            padding-top: 80px; 
         }
 
         .close-btn {
             position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 2.5rem;
+            top: 25px;
+            right: 30px;
+            font-size: 3rem;
             color: var(--accent-yellow);
             background: none;
             border: none;
             cursor: pointer;
             z-index: 100;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 300;
-            line-height: 1;
             transition: transform 0.3s ease;
         }
 
-        .close-btn:hover {
-            transform: scale(1.1);
-        }
+        .close-btn:hover { transform: rotate(90deg); }
 
         .content-section {
             display: none; 
-            padding: 20px 20px 80px 20px;
-            max-width: 800px;
+            padding: 20px 20px 100px 20px;
+            max-width: 900px;
             margin: 0 auto;
-            animation: fadeIn 0.4s ease forwards;
+            animation: slideUp 0.5s ease-out forwards;
         }
 
-        .content-section.active {
-            display: block; 
-        }
+        .content-section.active { display: block; }
 
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(15px); }
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(40px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
         .content-section h2 {
-            font-size: 1.8rem; 
+            font-size: 2.2rem; 
             font-weight: 400; 
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
             color: var(--accent-yellow);
-            margin-top: 0;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
             text-align: center;
         }
 
-        .about-container {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .about-img, .series-cover {
+        .series-cover {
             width: 100%;
-            max-width: 400px;
-            border: 1px solid #333;
-            transition: border-color 0.3s ease;
+            max-width: 450px;
+            border: 1px solid #222;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: block;
+            margin: 0 auto;
         }
 
         .gallery-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .about-text {
             font-size: 1.2rem; 
-            line-height: 1.6;
+            line-height: 1.8;
             color: var(--text-muted);
             text-align: center;
-        }
-
-        .about-text strong {
-            color: var(--text-main);
-            font-weight: 400;
-        }
-
-        @media (min-width: 768px) {
-            .about-container {
-                flex-direction: row;
-                align-items: flex-start;
-                text-align: left;
-            }
-            .about-text {
-                text-align: left;
-                flex: 1;
-            }
         }
 
         .youtube-container {
@@ -263,7 +246,8 @@
             overflow: hidden;
             width: 100%;
             border: 1px solid #333;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            background: #111;
         }
 
         .youtube-container iframe {
@@ -276,21 +260,21 @@
 
         .link-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
         }
 
         .hollow-btn {
             display: block;
-            padding: 15px;
+            padding: 18px;
             text-align: center;
-            border: 1px solid var(--text-muted);
+            border: 1px solid #444;
             color: var(--text-main);
             text-decoration: none;
             font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             transition: all 0.3s ease;
         }
 
@@ -298,121 +282,58 @@
             background-color: var(--text-main);
             color: var(--bg-color);
             border-color: var(--text-main);
-        }
-
-        .contact-layout {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            align-items: center;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .text-link {
-            font-size: 1.1rem; 
-            color: var(--text-muted);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            padding-bottom: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .text-link:hover {
-            color: var(--accent-yellow);
-            border-bottom-color: var(--accent-yellow);
+            transform: translateY(-3px);
         }
 
         .secure-form {
-            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
         }
 
-        .secure-form input,
-        .secure-form textarea {
+        .secure-form input, .secure-form textarea {
             width: 100%;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            background: rgba(255,255,255,0.03);
             border: 1px solid #333;
-            color: var(--text-main);
-            font-family: 'Outfit', sans-serif;
+            color: #fff;
+            font-family: inherit;
             font-size: 1rem;
-            box-sizing: border-box;
-            transition: border-color 0.3s ease;
-        }
-
-        .secure-form input:focus,
-        .secure-form textarea:focus {
-            outline: none;
-            border-color: var(--accent-yellow);
-        }
-
-        .secure-form textarea {
-            resize: vertical;
-            min-height: 120px;
         }
 
         .submit-btn {
-            padding: 15px;
-            background-color: transparent;
+            padding: 20px;
+            background: none;
             border: 1px solid var(--accent-yellow);
             color: var(--accent-yellow);
-            font-family: 'Outfit', sans-serif;
-            font-size: 1rem;
-            font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
 
         .submit-btn:hover {
-            background-color: var(--accent-yellow);
-            color: var(--bg-color);
+            background: var(--accent-yellow);
+            color: #000;
         }
 
         .site-footer {
             text-align: center;
-            padding: 40px 20px;
-            color: #555;
+            padding: 60px 20px;
+            color: #444;
             font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            letter-spacing: 3px;
         }
 
+        /* --- MOBILE ADJUSTMENTS --- */
         @media (max-width: 768px) {
-            .site-logo {
-                top: 20px;
-                left: 20px;
-                width: 45px;
-            }
-            .brand-name {
-                font-size: 4rem;
-            }
-            .hero-title-container {
-                margin-top: 100px;
-            }
-            .floating-nav {
-                left: 20px;
-                top: 35%; 
-                gap: 20px;
-            }
-            .nav-link {
-                font-size: 0.85rem;
-            }
-            .close-btn {
-                top: 10px;
-                right: 15px;
-            }
+            .brand-name { font-size: 4rem; }
+            .hero-title-container { margin-top: 120px; }
+            .floating-nav { left: 20px; gap: 20px; top: 40%; }
+            .nav-link { font-size: 0.8rem; letter-spacing: 2px; }
+            .site-logo { top: 20px; left: 20px; width: 40px; }
         }
     </style>
 
@@ -430,8 +351,7 @@
         "https://www.instagram.com/dace3g",
         "https://www.tiktok.com/@dace3g",
         "https://x.com/Dace3g",
-        "https://gh.linkedin.com/in/joseph-kwabena-djaba-dace3g-176242308",
-        "https://www.crunchbase.com/person/joseph-kwabena-djaba"
+        "https://gh.linkedin.com/in/joseph-kwabena-djaba-dace3g-176242308"
       ]
     }
     </script>
@@ -475,9 +395,9 @@
         
         <section id="3giiiis" class="content-section">
             <h2>3giiiis</h2>
-            <div class="about-text" style="text-align: left; max-width: 600px; margin: 0 auto;">
-                <p><strong>Tv shows I’ve watched recently:</strong></p>
-                <ul style="list-style: none; padding: 0; line-height: 2;">
+            <div class="about-text" style="text-align: left; max-width: 700px; margin: 0 auto;">
+                <p><strong>TV shows I’ve watched recently:</strong></p>
+                <ul style="list-style: none; padding: 0; line-height: 2.5; font-size: 1.1rem;">
                     <li>• The Boys</li>
                     <li>• Palm Royale</li>
                     <li>• Your Friends and Neighbors</li>
@@ -486,41 +406,38 @@
                     <li>• For all Mankind</li>
                     <li>• Abbott Elementary</li>
                 </ul>
-                <p style="font-size: 0.8rem; color: var(--accent-yellow); margin-top: 10px;">Updated: May 11, 2026</p>
+                <p style="font-size: 0.85rem; color: var(--accent-yellow); margin-top: 20px; opacity: 0.7;">Updated: May 11, 2026</p>
                 
-                <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+                <hr style="border: 0; border-top: 1px solid #222; margin: 50px 0;">
                 
                 <p><strong>Recently played music:</strong></p>
                 <div class="link-grid">
-                    <a href="https://open.spotify.com/track/0dvKv9g7eveN4YNjHeYw6T?si=faYoJNBXSRK6tIXixGhDgg" target="_blank" class="hollow-btn">Moviestar - Rema & Sofiane Pamart</a>
-                    <a href="https://open.spotify.com/track/2NSsAlLowF4oBBBktsAwM7?si=YmnbU0sbRguochzRrC_aOQ" target="_blank" class="hollow-btn">House Of Cards - Debbie ft. Victor Ray</a>
+                    <a href="https://open.spotify.com/track/0dvKv9g7eveN4YNjHeYw6T?si=faYoJNBXSRK6tIXixGhDgg" target="_blank" class="hollow-btn">Moviestar - Rema</a>
+                    <a href="https://open.spotify.com/track/2NSsAlLowF4oBBBktsAwM7?si=YmnbU0sbRguochzRrC_aOQ" target="_blank" class="hollow-btn">House Of Cards - Debbie</a>
                     <a href="https://open.spotify.com/track/5qWYxhd84Dj1uSR3GUtpJD?si=ftA8c3osQ66jojEGryrNUQ" target="_blank" class="hollow-btn">CANADA BREEZE - Omah Lay</a>
-                    <a href="https://music.apple.com/us/album/where-have-you-been/1878239070?i=1878239076" target="_blank" class="hollow-btn">Where Have You Been? - King Promise & Mr Eazi</a>
+                    <a href="https://music.apple.com/us/album/where-have-you-been/1878239070?i=1878239076" target="_blank" class="hollow-btn">Where Have You Been?</a>
                 </div>
-                <p style="font-size: 0.8rem; color: var(--accent-yellow); margin-top: 20px;">Updated: May 11, 2026</p>
             </div>
         </section>
 
         <section id="info" class="content-section">
             <h2>Info & Projects</h2>
-            <div style="max-width: 400px; margin: 0 auto;">
-                <img src="https://i.postimg.cc/Y2nYQ4yJ/Add-a-heading.png" alt="Unstable Cover Main" class="series-cover">
-                
+            <div style="max-width: 500px; margin: 0 auto;">
+                <img src="https://i.postimg.cc/Y2nYQ4yJ/Add-a-heading.png" alt="Unstable" class="series-cover">
                 <div class="gallery-grid">
-                    <img src="https://i.postimg.cc/Dy0QNQXS/Add-a-heading-7.png" alt="Unstable Cover 7" class="series-cover">
-                    <img src="https://i.postimg.cc/Hk7wYp3g/Add-a-heading-8.png" alt="Unstable Cover 8" class="series-cover">
+                    <img src="https://i.postimg.cc/Dy0QNQXS/Add-a-heading-7.png" alt="Gallery" class="series-cover">
+                    <img src="https://i.postimg.cc/Hk7wYp3g/Add-a-heading-8.png" alt="Gallery" class="series-cover">
                 </div>
             </div>
             
-            <p class="about-text" style="margin-top: 30px; margin-bottom: 20px;">Watch <strong>Unstable with Dace</strong>:</p>
+            <p class="about-text" style="margin-top: 40px;">Stream <strong>Unstable with Dace</strong>:</p>
             <div class="link-grid">
-                <a href="https://youtube.com/playlist?list=PLWVHO4NspRdvPp0flvd5TduBdq6nizYOI&si=HtzDOv_l7ZXzCmJT" target="_blank" class="hollow-btn">YouTube</a>
-                <a href="https://open.spotify.com/show/2070yfXMVlsjjXFbygFiwI" target="_blank" class="hollow-btn">Spotify</a>
-                <a href="https://podcasts.apple.com/us/podcast/unstable-with-dace/id1895793385" target="_blank" class="hollow-btn">Apple Podcasts</a>
-                <a href="https://music.amazon.com/podcasts/6125bb4a-a31c-45c8-a533-24e6ea33fa8c/unstable-with-dace" target="_blank" class="hollow-btn">Amazon Music</a>
+                <a href="https://youtube.com/playlist?list=PLWVHO4NspRdvPp0flvd5TduBdq6nizYOI" target="_blank" class="hollow-btn">YouTube</a>
+                <a href="#" class="hollow-btn">Spotify</a>
+                <a href="#" class="hollow-btn">Apple Podcasts</a>
             </div>
 
-            <div class="link-grid" style="margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
+            <div class="link-grid" style="margin-top: 60px; border-top: 1px solid #222; padding-top: 30px;">
                  <a href="https://gh.linkedin.com/in/joseph-kwabena-djaba-dace3g-176242308" target="_blank" class="hollow-btn">LinkedIn</a>
                  <a href="https://www.crunchbase.com/person/joseph-kwabena-djaba" target="_blank" class="hollow-btn">Crunchbase</a>
             </div>
@@ -528,71 +445,41 @@
 
         <section id="videos" class="content-section">
             <h2>Latest Releases</h2>
-            <!-- VIDEO 1 -->
-            <div class="youtube-container">
-                <iframe src="https://www.youtube.com/embed/n6basqlQeYQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <!-- VIDEO 2 -->
-            <div class="youtube-container">
-                <iframe src="https://www.youtube.com/embed/DN0jJ09b3b4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
+            <div class="youtube-container"><iframe src="https://www.youtube.com/embed/n6basqlQeYQ" frameborder="0" allowfullscreen></iframe></div>
+            <div class="youtube-container"><iframe src="https://www.youtube.com/embed/DN0jJ09b3b4" frameborder="0" allowfullscreen></iframe></div>
         </section>
 
         <section id="contact" class="content-section">
             <h2>Contact</h2>
-            
-            <div class="contact-layout">
-                <div class="social-links">
-                    <a href="https://youtube.com/@dace3g" target="_blank" class="text-link">YouTube</a>
-                    <a href="https://www.instagram.com/dace3g" target="_blank" class="text-link">Instagram</a>
-                    <a href="https://www.tiktok.com/@dace3g" target="_blank" class="text-link">TikTok</a>
-                    <a href="https://x.com/Dace3g" target="_blank" class="text-link">X / Twitter</a>
-                </div>
-
-                <p class="about-text" style="font-size: 0.9rem;">Or send a direct message below:</p>
-
-                <form class="secure-form" action="https://formspree.io/f/mnjwlgbq" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="_replyto" placeholder="Your Email" required>
-                    <textarea name="message" placeholder="Your Message" required></textarea>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
+            <form class="secure-form" action="https://formspree.io/f/mnjwlgbq" method="POST">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="_replyto" placeholder="Email Address" required>
+                <textarea name="message" placeholder="Project details or message..." rows="6" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
         </section>
 
         <section id="about" class="content-section">
             <h2>About</h2>
             <div class="about-container">
-                <img src="https://i.postimg.cc/NfdJ9f1R/IMG-0628.jpg" alt="About Dace" class="about-img">
+                <img src="https://i.postimg.cc/NfdJ9f1R/IMG-0628.jpg" alt="About" class="about-img" style="max-width: 350px;">
                 <div class="about-text">
-                    <p>Dace is a Ghanaian Content Creator and aspiring Actor/ Filmmaker. He hosted the JDEPOD (a podcast) for most of 2025. He is currently working on a new series called <strong>Unstable</strong>.</p>
+                    <p>Dace is a Ghanaian Content Creator and aspiring Actor/ Filmmaker. Currently focusing on the series <strong>Unstable</strong>.</p>
                 </div>
             </div>
         </section>
 
-        <footer class="site-footer">
-            ©️ Dace3g
-        </footer>
-
+        <footer class="site-footer">©️ Dace3g 2026</footer>
     </main>
 
     <script>
         function openPage(pageId) {
             document.getElementById('contentOverlay').style.display = 'block';
-            
-            let sections = document.querySelectorAll('.content-section');
-            sections.forEach(function(section) {
-                section.classList.remove('active');
-            });
-            
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
-            
             document.getElementById('contentOverlay').scrollTop = 0;
         }
-
-        function closePage() {
-            document.getElementById('contentOverlay').style.display = 'none';
-        }
+        function closePage() { document.getElementById('contentOverlay').style.display = 'none'; }
     </script>
 </body>
 </html>
