@@ -169,7 +169,7 @@
             z-index: 50;
             overflow-y: auto;
             display: none; 
-            padding-top: 14vh; /* Moved down content area slightly to prevent header crossover */
+            padding-top: 20vh; /* Pushes content down past the main title area */
         }
 
         .close-btn {
@@ -354,7 +354,7 @@
             .floating-nav { left: 20px; gap: 20px; top: 40%; }
             .nav-link { font-size: 0.8rem; letter-spacing: 2px; }
             .site-logo { top: 20px; left: 20px; width: 40px; }
-            .main-content { padding-top: 16vh; }
+            .main-content { padding-top: 25vh; } /* Safely shifts panel past header elements shown in image.png */
         }
     </style>
 
@@ -394,7 +394,7 @@
             <a onclick="openPage('3giiiis')" class="nav-link">3giiiis</a>
             <a onclick="openPage('info')" class="nav-link">Info</a>
             <a onclick="openPage('films')" class="nav-link">Films</a>
-            <a onclick="openPage('essays')" class="nav-link">Essays</a>
+            <a onclick="openPage('articles')" class="nav-link">Articles</a>
             <a onclick="openPage('videos')" class="nav-link">Videos</a>
             <a onclick="openPage('contact')" class="nav-link">Contact</a>
             <a onclick="openPage('about')" class="nav-link">About</a>
@@ -521,10 +521,10 @@
             </div>
         </section>
 
-        <!-- Isolated Essays Section -->
-        <section id="essays" class="content-section">
+        <!-- Isolated Articles Section -->
+        <section id="articles" class="content-section">
             <h2>Dace's Mind</h2>
-            <p class="about-text" style="font-size: 1.2rem; margin-bottom: 30px;">Analytical thoughts, critical commentary, and creative long-form written entries published on Substack.</p>
+            <p class="about-text" style="font-size: 1.2rem; margin-bottom: 30px;">A collection of my thoughts, personal stories, and deep dives published on Substack.</p>
             
             <div class="project-heading" style="margin-top: 20px;">Featured Publication</div>
             <div class="link-grid" style="max-width: 500px; margin: 0 auto 30px auto;">
