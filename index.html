@@ -169,7 +169,7 @@
             z-index: 50;
             overflow-y: auto;
             display: none; 
-            padding-top: 80px; 
+            padding-top: 14vh; /* Moved down content area slightly to prevent header crossover */
         }
 
         .close-btn {
@@ -208,7 +208,7 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             color: var(--accent-yellow);
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             text-align: center;
         }
 
@@ -252,6 +252,11 @@
             margin-top: 50px;
             margin-bottom: 5px;
             text-align: center;
+        }
+
+        .featured-btn {
+            border: 1px solid var(--accent-yellow) !important;
+            background-color: rgba(255, 204, 0, 0.03);
         }
 
         .youtube-container {
@@ -349,6 +354,7 @@
             .floating-nav { left: 20px; gap: 20px; top: 40%; }
             .nav-link { font-size: 0.8rem; letter-spacing: 2px; }
             .site-logo { top: 20px; left: 20px; width: 40px; }
+            .main-content { padding-top: 16vh; }
         }
     </style>
 
@@ -388,7 +394,7 @@
             <a onclick="openPage('3giiiis')" class="nav-link">3giiiis</a>
             <a onclick="openPage('info')" class="nav-link">Info</a>
             <a onclick="openPage('films')" class="nav-link">Films</a>
-            <a onclick="openPage('articles')" class="nav-link">Articles</a>
+            <a onclick="openPage('essays')" class="nav-link">Essays</a>
             <a onclick="openPage('videos')" class="nav-link">Videos</a>
             <a onclick="openPage('contact')" class="nav-link">Contact</a>
             <a onclick="openPage('about')" class="nav-link">About</a>
@@ -515,12 +521,26 @@
             </div>
         </section>
 
-        <!-- Isolated Articles Section -->
-        <section id="articles" class="content-section">
-            <h2>Articles</h2>
-            <p class="about-text" style="font-size: 1.2rem; margin-top: 10px; margin-bottom: 25px;">Read essays, cultural commentary, and updates directly from **Dace's Mind**.</p>
-            <div class="link-grid" style="max-width: 400px; margin: 0 auto;">
-                <a href="https://dacesmind.substack.com" target="_blank" class="hollow-btn">Read on Substack</a>
+        <!-- Isolated Essays Section -->
+        <section id="essays" class="content-section">
+            <h2>Dace's Mind</h2>
+            <p class="about-text" style="font-size: 1.2rem; margin-bottom: 30px;">Analytical thoughts, critical commentary, and creative long-form written entries published on Substack.</p>
+            
+            <div class="project-heading" style="margin-top: 20px;">Featured Publication</div>
+            <div class="link-grid" style="max-width: 500px; margin: 0 auto 30px auto;">
+                <a href="https://open.substack.com/pub/dacesmind/p/i-want-to-disappear-like-frank-ocean?r=695i8i&utm_campaign=post&utm_medium=web" target="_blank" class="hollow-btn featured-btn">I Want to Disappear Like Frank Ocean</a>
+            </div>
+
+            <div class="project-heading">Recent Articles</div>
+            <div class="link-grid">
+                <a href="https://open.substack.com/pub/dacesmind/p/i-lost-my-id-card?r=695i8i&utm_campaign=post&utm_medium=web" target="_blank" class="hollow-btn">I Lost My ID Card</a>
+                <a href="https://open.substack.com/pub/dacesmind/p/am-i-even-capable-of-love?r=695i8i&utm_campaign=post&utm_medium=web" target="_blank" class="hollow-btn">Am I Even Capable of Love?</a>
+                <a href="https://open.substack.com/pub/dacesmind/p/theres-a-crush-recession-happening?r=695i8i&utm_campaign=post&utm_medium=web" target="_blank" class="hollow-btn">There's a Crush Recession Happening</a>
+                <a href="https://open.substack.com/pub/dacesmind/p/my-personal-person?r=695i8i&utm_campaign=post&utm_medium=web" target="_blank" class="hollow-btn">My Personal Person</a>
+            </div>
+
+            <div class="link-grid" style="margin-top: 40px; border-top: 1px solid #222; padding-top: 30px;">
+                <a href="https://dacesmind.substack.com" target="_blank" class="hollow-btn" style="border-color: var(--accent-yellow); color: var(--accent-yellow);">Visit Substack Publication</a>
             </div>
         </section>
 
